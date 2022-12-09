@@ -5,24 +5,24 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Option {
-    @Column(name = "option_value")
-    private String value;
-    @Column(name = "option_title")
-    private String title;
+  @Column(name = "option_value")
+  private String value;
 
-    private Option() {
-    }
+  @Column(name = "option_title")
+  private String title;
 
-    public Option(String value, String title) {
-        this.value = value;
-        this.title = title;
-    }
+  private Option() {}
 
-    public String getValue() {
-        return value;
-    }
+  public Option(String value, String title) {
+    this.value = value;
+    this.title = title;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getValue() {
+    return value;
+  }
+
+  public String getTitle() {
+    return title;
+  }
 }

@@ -1,4 +1,3 @@
 package com.myshop.member.command.application;
 
-public class NoMemberException extends RuntimeException {
-}
+public class NoMemberException extends RuntimeException {}

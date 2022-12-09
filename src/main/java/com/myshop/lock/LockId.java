@@ -1,13 +1,13 @@
 package com.myshop.lock;
 
 public class LockId {
-    private String value;
+  private String value;
 
-    public LockId(String value) {
-        this.value = value;
-    }
+  public LockId(String value) {
+    this.value = value;
+  }
 
-    public String getValue() {
-        return value;
-    }
+  public String getValue() {
+    return value;
+  }
 }

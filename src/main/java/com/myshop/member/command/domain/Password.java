@@ -5,17 +5,16 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Password {
-    @Column(name = "password")
-    private String value;
+  @Column(name = "password")
+  private String value;
 
-    protected Password() {
-    }
+  protected Password() {}
 
-    public Password(String value) {
-        this.value = value;
-    }
+  public Password(String value) {
+    this.value = value;
+  }
 
-    public boolean match(String password) {
-        return this.value.equals(password);
-    }
+  public boolean match(String password) {
+    return this.value.equals(password);
+  }
 }

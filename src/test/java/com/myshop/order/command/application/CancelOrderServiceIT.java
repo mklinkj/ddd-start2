@@ -10,11 +10,10 @@ import org.springframework.test.context.jdbc.Sql;
 @SpringBootTest
 @Sql("classpath:shop-init-test.sql")
 class CancelOrderServiceIT {
-    @Autowired
-    private CancelOrderService cancelOrderService;
+  @Autowired private CancelOrderService cancelOrderService;
 
-    @Test
-    void cancel() {
-        cancelOrderService.cancel(OrderNo.of("ORDER-001"), Canceller.of("user1"));
-    }
+  @Test
+  void cancel() {
+    cancelOrderService.cancel(OrderNo.of("ORDER-001"), Canceller.of("user1"));
+  }
 }

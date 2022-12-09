@@ -10,19 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class BlockMemberService {
 
-    private MemberRepository memberRepository;
+  private MemberRepository memberRepository;
 
-    public BlockMemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
+  public BlockMemberService(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+  }
 
-    @PreAuthorize("hasRole('ADMIN')")
-    @Transactional
-    public void block(String memberId) {
-        Member member = memberRepository.findById(new MemberId(memberId))
-                .orElseThrow(() -> new NoMemberException());
+  @PreAuthorize("hasRole('ADMIN')")
+  @Transactional
+  public void block(String memberId) {
+    Member member =
+        memberRepository
+            .findById(new MemberId(memberId))
+            .orElseThrow(() -> new NoMemberException());
 
-        member.block();
-    }
-
+    member.block();
+  }
 }

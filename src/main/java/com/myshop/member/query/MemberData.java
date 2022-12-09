@@ -8,32 +8,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "member")
 public class MemberData {
-    @Id
-    @Column(name = "member_id")
-    private String id;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "blocked")
-    private boolean blocked;
+  @Id
+  @Column(name = "member_id")
+  private String id;
 
-    protected MemberData() {
-    }
+  @Column(name = "name")
+  private String name;
 
-    public MemberData(String id, String name, boolean blocked) {
-        this.id = id;
-        this.name = name;
-        this.blocked = blocked;
-    }
+  @Column(name = "blocked")
+  private boolean blocked;
 
-    public String getId() {
-        return id;
-    }
+  protected MemberData() {}
 
-    public String getName() {
-        return name;
-    }
+  public MemberData(String id, String name, boolean blocked) {
+    this.id = id;
+    this.name = name;
+    this.blocked = blocked;
+  }
 
-    public boolean isBlocked() {
-        return blocked;
-    }
+  public String getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public boolean isBlocked() {
+    return blocked;
+  }
 }

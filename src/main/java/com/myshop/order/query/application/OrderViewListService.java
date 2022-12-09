@@ -10,18 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class OrderViewListService {
-    private OrderSummaryDao orderSummaryDao;
+  private OrderSummaryDao orderSummaryDao;
 
-    public OrderViewListService(OrderSummaryDao orderSummaryDao) {
-        this.orderSummaryDao = orderSummaryDao;
-    }
+  public OrderViewListService(OrderSummaryDao orderSummaryDao) {
+    this.orderSummaryDao = orderSummaryDao;
+  }
 
-    @Transactional
-    public Page<OrderSummary> getList(ListRequest listReq) {
-        PageRequest pageable = PageRequest.of(
-                listReq.getPage(),
-                listReq.getSize(),
-                Sort.by(Sort.Direction.DESC, "number"));
-        return orderSummaryDao.findAll(pageable);
-    }
+  @Transactional
+  public Page<OrderSummary> getList(ListRequest listReq) {
+    PageRequest pageable =
+        PageRequest.of(
+            listReq.getPage(), listReq.getSize(), Sort.by(Sort.Direction.DESC, "number"));
+    return orderSummaryDao.findAll(pageable);
+  }
 }

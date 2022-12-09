@@ -1,11 +1,10 @@
 package com.myshop.board.domain;
 
+import java.util.Optional;
 import org.springframework.data.repository.Repository;
 
-import java.util.Optional;
-
 public interface ArticleRepository extends Repository<Article, Long> {
-    void save(Article article);
+  void save(Article article);
 
-    Optional<Article> findById(Long id);
+  Optional<Article> findById(Long id);
 }

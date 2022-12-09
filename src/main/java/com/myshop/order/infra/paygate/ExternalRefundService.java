@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ExternalRefundService implements RefundService {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+  private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Override
-    public void refund(String orderNumber) {
-        logger.info("refund order[{}]", orderNumber);
-    }
+  @Override
+  public void refund(String orderNumber) {
+    logger.info("refund order[{}]", orderNumber);
+  }
 }

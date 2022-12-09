@@ -3,30 +3,30 @@ package com.myshop.common.model;
 import java.util.Objects;
 
 public class Email {
-    private String address;
+  private String address;
 
-    public Email(String address) {
-        this.address = address;
-    }
+  public Email(String address) {
+    this.address = address;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public static Email of(String address) {
+    return new Email(address);
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Email email = (Email) o;
-        return Objects.equals(address, email.address);
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(address);
-    }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Email email = (Email) o;
+    return Objects.equals(address, email.address);
+  }
 
-    public static Email of(String address) {
-        return new Email(address);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(address);
+  }
 }

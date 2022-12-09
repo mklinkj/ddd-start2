@@ -1,4 +1,3 @@
 package com.myshop.order.command.domain;
 
-public class AlreadyShippedException extends RuntimeException {
-}
+public class AlreadyShippedException extends RuntimeException {}

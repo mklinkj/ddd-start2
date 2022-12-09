@@ -6,25 +6,24 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("EI")
 public class ExternalImage extends Image {
-    protected ExternalImage() {
-    }
+  protected ExternalImage() {}
 
-    public ExternalImage(String path) {
-        super(path);
-    }
+  public ExternalImage(String path) {
+    super(path);
+  }
 
-    @Override
-    public String getUrl() {
-        return getPath();
-    }
+  @Override
+  public String getUrl() {
+    return getPath();
+  }
 
-    @Override
-    public boolean hasThumbnail() {
-        return false;
-    }
+  @Override
+  public boolean hasThumbnail() {
+    return false;
+  }
 
-    @Override
-    public String getThumbnailUrl() {
-        return null;
-    }
+  @Override
+  public String getThumbnailUrl() {
+    return null;
+  }
 }

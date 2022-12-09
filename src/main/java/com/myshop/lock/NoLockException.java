@@ -1,4 +1,3 @@
 package com.myshop.lock;
 
-public class NoLockException extends RuntimeException {
-}
+public class NoLockException extends RuntimeException {}

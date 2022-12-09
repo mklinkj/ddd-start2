@@ -9,15 +9,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrdererServiceImpl implements OrdererService {
-    private MemberQueryService memberQueryService;
+  private MemberQueryService memberQueryService;
 
-    public OrdererServiceImpl(MemberQueryService memberQueryService) {
-        this.memberQueryService = memberQueryService;
-    }
+  public OrdererServiceImpl(MemberQueryService memberQueryService) {
+    this.memberQueryService = memberQueryService;
+  }
 
-    @Override
-    public Orderer createOrderer(MemberId ordererMemberId) {
-        MemberData memberData = memberQueryService.getMemberData(ordererMemberId.getId());
-        return new Orderer(MemberId.of(memberData.getId()), memberData.getName());
-    }
+  @Override
+  public Orderer createOrderer(MemberId ordererMemberId) {
+    MemberData memberData = memberQueryService.getMemberData(ordererMemberId.getId());
+    return new Orderer(MemberId.of(memberData.getId()), memberData.getName());
+  }
 }

@@ -5,24 +5,24 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Receiver {
-    @Column(name = "receiver_name")
-    private String name;
-    @Column(name = "receiver_phone")
-    private String phone;
+  @Column(name = "receiver_name")
+  private String name;
 
-    public Receiver() {
-    }
+  @Column(name = "receiver_phone")
+  private String phone;
 
-    public Receiver(String name, String phone) {
-        this.name = name;
-        this.phone = phone;
-    }
+  public Receiver() {}
 
-    public String getName() {
-        return name;
-    }
+  public Receiver(String name, String phone) {
+    this.name = name;
+    this.phone = phone;
+  }
 
-    public String getPhone() {
-        return phone;
-    }
+  public String getName() {
+    return name;
+  }
+
+  public String getPhone() {
+    return phone;
+  }
 }

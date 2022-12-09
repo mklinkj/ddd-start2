@@ -8,25 +8,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "category")
 public class Category {
-    @EmbeddedId
-    private CategoryId id;
+  @EmbeddedId private CategoryId id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    protected Category() {
-    }
+  protected Category() {}
 
-    public Category(CategoryId id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  public Category(CategoryId id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public CategoryId getId() {
-        return id;
-    }
+  public CategoryId getId() {
+    return id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 }

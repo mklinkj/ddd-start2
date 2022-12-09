@@ -7,22 +7,21 @@ import javax.persistence.Embeddable;
 @Embeddable
 @Access(AccessType.FIELD)
 public class ArticleContent {
-    private String content;
-    private String contentType;
+  private String content;
+  private String contentType;
 
-    protected ArticleContent() {
-    }
+  protected ArticleContent() {}
 
-    public ArticleContent(String content, String contentType) {
-        this.content = content;
-        this.contentType = contentType;
-    }
+  public ArticleContent(String content, String contentType) {
+    this.content = content;
+    this.contentType = contentType;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public String getContentType() {
-        return contentType;
-    }
+  public String getContentType() {
+    return contentType;
+  }
 }

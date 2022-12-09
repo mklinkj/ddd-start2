@@ -1,11 +1,9 @@
 package com.myshop.common.jpa;
 
+import java.io.Serializable;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
 
-import java.io.Serializable;
-
 @NoRepositoryBean
 public interface RangeableRepository<T, ID extends Serializable>
-        extends Repository<T, ID>, RangeableExecutor<T> {
-}
+    extends Repository<T, ID>, RangeableExecutor<T> {}

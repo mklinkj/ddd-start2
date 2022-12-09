@@ -1,13 +1,13 @@
 package com.myshop.order.command.application;
 
 public class NoOrderProductException extends RuntimeException {
-    private String productId;
+  private String productId;
 
-    public NoOrderProductException(String productId) {
-        this.productId = productId;
-    }
+  public NoOrderProductException(String productId) {
+    this.productId = productId;
+  }
 
-    public String getProductId() {
-        return productId;
-    }
+  public String getProductId() {
+    return productId;
+  }
 }
