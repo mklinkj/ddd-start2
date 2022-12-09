@@ -1,17 +1,13 @@
-<%@ page contentType="text/html; charset=utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>관리자 주문 배송 처리 실패 : ${order.number}</title>
-  <jsp:include page="/WEB-INF/view/common/css.jsp"/>
-  <jsp:include page="/WEB-INF/view/common/js.jsp"/>
+  <title>관리자 주문 배송 처리 : ${order.number}</title>
+  <th:block th:replace="fragments/layout :: cssjs"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/view/common/navi.jsp"/>
+<div th:replace="fragments/layout :: header"></div>
 
 <div class="container">
   <ol class="breadcrumb">
@@ -27,7 +23,7 @@
   <a class="btn btn-primary" href="/admin/orders/${orderNo}" role="button">주문 내역 보기</a>
 </div>
 
-<jsp:include page="/WEB-INF/view/common/footer.jsp"/>
+<div th:replace="fragments/layout :: footer"></div>
 
 </body>
 </html>
