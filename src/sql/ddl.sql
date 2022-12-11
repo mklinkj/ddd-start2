@@ -1,124 +1,118 @@
-create
-database shop character set utf8mb4 collate utf8mb4_general_ci;
+CREATE DATABASE shop CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
-CREATE
-USER 'shopuser'@'localhost' IDENTIFIED BY 'shoppass';
-CREATE
-USER 'shopuser'@'%' IDENTIFIED BY 'shoppass';
+CREATE USER 'shopuser'@'localhost' IDENTIFIED BY 'shoppass';
+CREATE USER 'shopuser'@'%' IDENTIFIED BY 'shoppass';
 
-GRANT ALL PRIVILEGES ON shop.* TO
-'shopuser'@'localhost';
-GRANT ALL PRIVILEGES ON shop.* TO
-'shopuser'@'%';
+GRANT ALL PRIVILEGES ON shop.* TO 'shopuser'@'localhost';
+GRANT ALL PRIVILEGES ON shop.* TO 'shopuser'@'%';
 
-use
-shop;
+USE shop;
 
-create table shop.purchase_order
+CREATE TABLE shop.purchase_order
 (
-    order_number      varchar(50) not null primary key,
-    version           bigint,
-    orderer_id        varchar(50),
-    orderer_name      varchar(50),
-    total_amounts     int,
-    shipping_zip_code varchar(6),
-    shipping_addr1    varchar(100),
-    shipping_addr2    varchar(100),
-    shipping_message  varchar(200),
-    receiver_name     varchar(50),
-    receiver_phone    varchar(50),
-    state             varchar(20),
-    order_date        datetime
-) character set utf8mb4;
+    order_number      VARCHAR(50) NOT NULL PRIMARY KEY,
+    version           BIGINT,
+    orderer_id        VARCHAR(50),
+    orderer_name      VARCHAR(50),
+    total_amounts     INT,
+    shipping_zip_code VARCHAR(6),
+    shipping_addr1    VARCHAR(100),
+    shipping_addr2    VARCHAR(100),
+    shipping_message  VARCHAR(200),
+    receiver_name     VARCHAR(50),
+    receiver_phone    VARCHAR(50),
+    state             VARCHAR(20),
+    order_date        DATETIME
+) CHARACTER SET utf8mb4;
 
-create table shop.order_line
+CREATE TABLE shop.order_line
 (
-    order_number varchar(50) not null,
-    line_idx     int         not null,
-    product_id   varchar(50) not null,
-    price        int,
-    quantity     int,
-    amounts      int
-) character set utf8mb4;
+    order_number VARCHAR(50) NOT NULL,
+    line_idx     INT         NOT NULL,
+    product_id   VARCHAR(50) NOT NULL,
+    price        INT,
+    quantity     INT,
+    amounts      INT
+) CHARACTER SET utf8mb4;
 
-create index order_line_idx ON order_line (order_number, line_idx);
+CREATE INDEX order_line_idx ON order_line (order_number, line_idx);
 
-create table shop.category
+CREATE TABLE shop.category
 (
-    category_id bigint not null primary key,
-    name        varchar(100)
-) character set utf8mb4;
+    category_id BIGINT NOT NULL PRIMARY KEY,
+    name        VARCHAR(100)
+) CHARACTER SET utf8mb4;
 
-create table shop.product
+CREATE TABLE shop.product
 (
-    product_id varchar(50) not null primary key,
-    name       varchar(100),
-    price      int,
-    detail     text
-) character set utf8mb4;
+    product_id VARCHAR(50) NOT NULL PRIMARY KEY,
+    name       VARCHAR(100),
+    price      INT,
+    detail     TEXT
+) CHARACTER SET utf8mb4;
 
-create table shop.product_category
+CREATE TABLE shop.product_category
 (
-    product_id  varchar(50) not null,
-    category_id bigint      not null,
-    constraint primary key (product_id, category_id)
-) character set utf8mb4;
+    product_id  VARCHAR(50) NOT NULL,
+    category_id BIGINT      NOT NULL,
+    CONSTRAINT PRIMARY KEY (product_id, category_id)
+) CHARACTER SET utf8mb4;
 
-create table shop.image
+CREATE TABLE shop.image
 (
-    image_id    int not null auto_increment primary key,
-    product_id  varchar(50),
-    list_idx    int,
-    image_type  varchar(10),
-    image_path  varchar(255),
-    upload_time datetime
-) character set utf8mb4;
+    image_id    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_id  VARCHAR(50),
+    list_idx    INT,
+    image_type  VARCHAR(10),
+    image_path  VARCHAR(255),
+    upload_time DATETIME
+) CHARACTER SET utf8mb4;
 
-create table shop.member
+CREATE TABLE shop.member
 (
-    member_id varchar(50) not null primary key,
-    name      varchar(50),
-    password  varchar(255),
-    blocked   boolean,
-    emails    varchar(200)
-) character set utf8mb4;
+    member_id VARCHAR(50) NOT NULL PRIMARY KEY,
+    name      VARCHAR(50),
+    password  VARCHAR(255),
+    blocked   BOOLEAN,
+    emails    VARCHAR(200)
+) CHARACTER SET utf8mb4;
 
-create table shop.member_authorities
+CREATE TABLE shop.member_authorities
 (
-    member_id varchar(50) not null,
-    authority varchar(50) not null,
-    primary key (member_id, authority)
-) character set utf8mb4;
+    member_id VARCHAR(50) NOT NULL,
+    authority VARCHAR(50) NOT NULL,
+    PRIMARY KEY (member_id, authority)
+) CHARACTER SET utf8mb4;
 
-create table shop.article
+CREATE TABLE shop.article
 (
-    id    int not null auto_increment primary key,
-    title varchar(255)
-) character set utf8mb4;
+    id    INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255)
+) CHARACTER SET utf8mb4;
 
-create table shop.article_content
+CREATE TABLE shop.article_content
 (
-    id           int not null primary key,
-    content      varchar(255),
-    content_type varchar(255)
-) character set utf8mb4;
+    id           INT NOT NULL PRIMARY KEY,
+    content      VARCHAR(255),
+    content_type VARCHAR(255)
+) CHARACTER SET utf8mb4;
 
-create table shop.evententry
+CREATE TABLE shop.evententry
 (
-    id             int not null AUTO_INCREMENT PRIMARY KEY,
-    `type`         varchar(255),
-    `content_type` varchar(255),
+    id             INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type`         VARCHAR(255),
+    `content_type` VARCHAR(255),
     payload        MEDIUMTEXT,
-    `timestamp`    datetime
-) character set utf8mb4;
+    `timestamp`    DATETIME
+) CHARACTER SET utf8mb4;
 
-create table shop.locks
+CREATE TABLE shop.locks
 (
-    `type`          varchar(255),
-    id              varchar(255),
-    lockid          varchar(255),
-    expiration_time datetime,
-    primary key (`type`, id)
-) character set utf8mb4;
+    `type`          VARCHAR(255),
+    id              VARCHAR(255),
+    lockid          VARCHAR(255),
+    expiration_time DATETIME,
+    PRIMARY KEY (`type`, id)
+) CHARACTER SET utf8mb4;
 
-create unique index locks_idx ON shop.locks (lockid);
+CREATE UNIQUE INDEX locks_idx ON shop.locks (lockid);
